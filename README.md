@@ -1,8 +1,8 @@
 (Практика: "Структурные шаблоны. Proxy, Decorator, Adapter")
 
-# Задача Калькулятор
+## Задача: "Калькулятор"
 
-## Описание
+### Описание
 В этом задании попрактикуемся с шаблоном *Adapter* (*Адаптер*). Ниже вам дан готовый класс калькулятора:
 
 ```java
@@ -64,6 +64,7 @@ public class Calculator {
 ```
 
 Пример использования этого класса:
+
 ```java
 Calculator calc = new Calculator();
 System.out.println(
@@ -76,6 +77,7 @@ System.out.println(
 ```
 
 Пользователю же нужен другой интерфейс для работы с калькулятором:
+
 ```java
 public interface Ints {
   int sum(int arg0, int arg1);
@@ -84,6 +86,7 @@ public interface Ints {
 }
 ``` 
 который он использует в `main`, например, вот так:
+
 ```java
 public static void main(String[] args) {
   Ints intsCalc = new IntsCalculator();
@@ -95,10 +98,11 @@ public static void main(String[] args) {
 
 Вам надо написать класс `IntsCalculator`, который будет имплементировать интерфейс `Ints`, "под капотом" делая вычисления через класс `Calculator`.
 
-## Реализация
+### Реализация
 1. Создайте класс `Calculator`, скопируйте его готовый код выше.
 2. Создайте интерфейс `Ints`, скопируйте его готовый код выше.
 3. Создайте класс `IntsCalculator`, укажите что он имплементирует интерфейс `Ints`, реализуйте его методы через обращение к объекту класса `Calculator`:
+
 ```java
 public class IntsCalculator implements Ints {
   protected final Calculator target;
@@ -122,6 +126,7 @@ public class IntsCalculator implements Ints {
 }
 ```
 4. Создайте класс `Main`, продемонстрируйте использование и возможности вашего класса (например, как выше в условии), обращайтесь к нему как к объекту интерфейса `Ints`.
+
 ```java
 public class Main {
   public static void main(String[] args) {
